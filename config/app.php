@@ -141,7 +141,8 @@ return [
         Illuminate\Pipeline\PipelineServiceProvider::class,
         Illuminate\Queue\QueueServiceProvider::class,
         Illuminate\Redis\RedisServiceProvider::class,
-        Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
+//        Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
+		LaravelDoctrine\ORM\Auth\Passwords\PasswordResetServiceProvider::class,
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
@@ -150,6 +151,10 @@ return [
         /*
          * Package Service Providers...
          */
+
+        LaravelDoctrine\ORM\DoctrineServiceProvider::class,
+		LaravelDoctrine\Extensions\GedmoExtensionsServiceProvider::class,
+		LaravelDoctrine\Migrations\MigrationsServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -208,6 +213,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+		'EntityManager' => LaravelDoctrine\ORM\Facades\EntityManager::class,
+		'Registry'      => LaravelDoctrine\ORM\Facades\Registry::class,
+		'Doctrine'      => LaravelDoctrine\ORM\Facades\Doctrine::class,
 
     ],
 

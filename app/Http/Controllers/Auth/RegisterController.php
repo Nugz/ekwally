@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Data\Entities\User as User;
+use App\Data\Entities\User\UserEntity as User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -50,7 +50,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:App\Data\Entities\User\UserEntity',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -63,10 +63,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $user = new User;
+        $user->setEmail($data['email']);
+        $user->setName($data['name']);
+        $user->setPassword(bcrypt($data['password']));
+
+        \EntityManager::persist($user);
+        \EntityManager::flush();
+
+        return $user;
     }
 }
