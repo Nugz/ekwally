@@ -13,7 +13,7 @@ use LaravelDoctrine\ORM\Notifications\Notifiable;
  * @ORM\Entity
  * @ORM\Table(name="user")
  */
-class UserEntity implements AuthenticatableContract, CanResetPasswordContract {
+class UserEntity extends \App\Data\Entities\MainEntity implements AuthenticatableContract, CanResetPasswordContract {
 
 	use Authenticatable, CanResetPassword, Timestamps, Notifiable;
 
@@ -129,7 +129,13 @@ class UserEntity implements AuthenticatableContract, CanResetPasswordContract {
 
 	public function authorizeType($type) {
 
-		return $this->getType() == $type || abort(401, 'This action is unauthorized.');
+		return $this->isType($type) || abort(401, 'This action is unauthorized.');
+
+	}
+
+	public function isType($type) {
+
+		return $this->getType() == $type;
 
 	}
 

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="company")
  */
-class CompanyEntity
+class CompanyEntity extends \App\Data\Entities\MainEntity
 {
     /**
      * @ORM\Id

@@ -64,14 +64,53 @@
 
                                 <select id="nr_employees" class="form-control{{ $errors->has('nr_employees') ? ' is-invalid' : '' }}" name="nr_employees">
                                     <option value="">Selecteer aantal...</option>
-                                    <option value="1-5">1-5</option>
-                                    <option value="5-10">5-10</option>
-                                    <option value="10-25">10-20</option>
-                                    <option value="25-50">25-50</option>
-                                    <option value="50-100">50-100</option>
-                                    <option value="100-250">100-250</option>
-                                    <option value="250-500">259-500</option>
-                                    <option value="500+">500+</option>
+                                    <option value="1-5"
+                                        @if ("1-5" == old('nr_employees', $company->getNrEmployees()))
+                                        selected="selected"
+                                        @endif
+                                    >1-5</option>
+
+                                    <option value="5-10"
+                                            @if ("5-10" == old('nr_employees', $company->getNrEmployees()))
+                                            selected="selected"
+                                            @endif
+                                    >5-10</option>
+
+                                    <option value="10-25"
+                                            @if ("10-25" == old('nr_employees', $company->getNrEmployees()))
+                                            selected="selected"
+                                            @endif
+                                    >10-25</option>
+
+                                    <option value="25-50"
+                                            @if ("25-50" == old('nr_employees', $company->getNrEmployees()))
+                                            selected="selected"
+                                            @endif
+                                    >25-50</option>
+
+                                    <option value="50-100"
+                                            @if ("50-100" == old('nr_employees', $company->getNrEmployees()))
+                                            selected="selected"
+                                            @endif
+                                    >50-100</option>
+
+                                    <option value="100-250"
+                                            @if ("100-250" == old('nr_employees', $company->getNrEmployees()))
+                                            selected="selected"
+                                            @endif
+                                    >100-250</option>
+
+                                    <option value="250-500"
+                                            @if ("250-500" == old('nr_employees', $company->getNrEmployees()))
+                                            selected="selected"
+                                            @endif
+                                    >250-500</option>
+
+                                    <option value="500+"
+                                            @if ("500+" == old('nr_employees', $company->getNrEmployees()))
+                                            selected="selected"
+                                            @endif
+                                    >500+</option>
                                 </select>
 
                                 {{--<input id="nr_employees" type="text" class="form-control{{ $errors->has('nr_employees') ? ' is-invalid' : '' }}" name="nr_employees" value="{{ old('nr_employees') }}">--}}
@@ -82,9 +121,7 @@
                             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id="description" class="form-controll{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description">
-                                    {{ old('description') }}
-                                </textarea>
+                                <textarea id="description" class="form-controll{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description">{{ old('description', $company->getDescription()) }}</textarea>
 
                                 @if ($errors->has('description'))
                                     <span class="invalid-feedback" role="alert">
