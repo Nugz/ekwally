@@ -4,6 +4,6 @@ import Profile from './components/Profile.vue'
 
 new Vue({
     el: '#app',
-    components: { Profile },
+    components: { profile: Profile },
     store: Store
 })
