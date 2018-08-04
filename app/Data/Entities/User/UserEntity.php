@@ -46,7 +46,7 @@ class UserEntity implements AuthenticatableContract, CanResetPasswordContract {
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Data\Entities\Company\CompanyEntity", inversedBy="userEntity")
-     * @ORM\JoinColumn(name="company_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="company_id", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $companyEntity;
 
@@ -114,9 +114,9 @@ class UserEntity implements AuthenticatableContract, CanResetPasswordContract {
 	}
 
 	/**
-	 * @return string
+	 * @return \App\Data\Entities\Company\CompanyEntity $companyEntity
 	 */
-	public function getCompanyEntity() {
+	public function getCompany() {
 		return $this->companyEntity;
 	}
 

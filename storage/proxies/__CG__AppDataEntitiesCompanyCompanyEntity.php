@@ -64,10 +64,10 @@ class CompanyEntity extends \App\Data\Entities\Company\CompanyEntity implements 
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'name', 'website_url', 'kvk_nummer', 'userEntity'];
+            return ['__isInitialized__', 'id', 'name', 'website_url', 'kvk_nummer', 'nr_employees', 'description', 'userEntity'];
         }
 
-        return ['__isInitialized__', 'id', 'name', 'website_url', 'kvk_nummer', 'userEntity'];
+        return ['__isInitialized__', 'id', 'name', 'website_url', 'kvk_nummer', 'nr_employees', 'description', 'userEntity'];
     }
 
     /**
@@ -252,6 +252,50 @@ class CompanyEntity extends \App\Data\Entities\Company\CompanyEntity implements 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setKvkNummer', [$kvk_nummer]);
 
         return parent::setKvkNummer($kvk_nummer);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getNrEmployees()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNrEmployees', []);
+
+        return parent::getNrEmployees();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setNrEmployees($nr_employees)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNrEmployees', [$nr_employees]);
+
+        return parent::setNrEmployees($nr_employees);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDescription()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', []);
+
+        return parent::getDescription();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDescription($description)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', [$description]);
+
+        return parent::setDescription($description);
     }
 
 }

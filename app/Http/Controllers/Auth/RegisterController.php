@@ -66,7 +66,7 @@ class RegisterController extends Controller
         $user->setEmail($data['email']);
         $user->setName($data['name']);
         $user->setPassword(bcrypt($data['password']));
-        $user->setType('user')
+        $user->setType('user');
 
         \EntityManager::persist($user);
         \EntityManager::flush();

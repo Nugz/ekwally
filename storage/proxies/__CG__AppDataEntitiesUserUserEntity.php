@@ -257,6 +257,61 @@ class UserEntity extends \App\Data\Entities\User\UserEntity implements \Doctrine
     /**
      * {@inheritDoc}
      */
+    public function getType()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getType', []);
+
+        return parent::getType();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setType($type)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setType', [$type]);
+
+        return parent::setType($type);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCompany()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCompany', []);
+
+        return parent::getCompany();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setCompanyEntity($companyEntity)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCompanyEntity', [$companyEntity]);
+
+        return parent::setCompanyEntity($companyEntity);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function authorizeType($type)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'authorizeType', [$type]);
+
+        return parent::authorizeType($type);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getAuthIdentifierName()
     {
 

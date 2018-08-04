@@ -15,6 +15,9 @@
     </entity>
     <association from="\App\Data\Entities\User\UserEntity" to="\App\Data\Entities\Company\CompanyEntity" caption="CompanyEntity UserEntity" owner-alias="userEntity" inverse-alias="companyEntity" many-owner="true" many-inverse="false" uuid="98d0a53a-68b8-4aa4-914e-98b891f767e9">
       <association-field from="company_id" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-attributes>
     </association>
     <orm-attributes>
       <attribute name="filename-format">entity-name-only</attribute>
@@ -23,9 +26,11 @@
   <module name="\Entities/Company" local-name="Entities/Company" namespace="\App\Data\Entities\Company" local-namespace="App\Data\Entities\Company" export-format="Doctrine2Php" export-path="app/Data/Entities/Company" uuid="6ff36cc4-4377-4f54-98b6-0155e33a198b">
     <entity name="\App\Data\Entities\Company\CompanyEntity" local-name="CompanyEntity" namespace="\App\Data\Entities\Company" uuid="6bcbb610-5a8a-472e-bf0f-69124926f2c7">
       <field name="id" type="integer" size="11" required="true" unique="true" primary="true" unsigned="true" auto-increment="true" uuid="2f6476bc-0443-4cf8-881e-dab02b6e8c04"/>
-      <field name="name" required="true" uuid="b65e4a8b-2e0a-4c07-8284-52a053d1c92d"/>
-      <field name="website_url" uuid="8fc4d510-9644-46fa-916b-8d9d8538c354"/>
-      <field name="kvk_nummer" required="true" unique="true" uuid="47bf3017-14a3-4015-a4fe-208d74c6f2e8"/>
+      <field name="name" type="string" size="125" required="true" uuid="b65e4a8b-2e0a-4c07-8284-52a053d1c92d"/>
+      <field name="website_url" type="string" size="255" uuid="8fc4d510-9644-46fa-916b-8d9d8538c354"/>
+      <field name="kvk_nummer" type="integer" size="8" required="true" unique="true" uuid="47bf3017-14a3-4015-a4fe-208d74c6f2e8"/>
+      <field name="nr_employees" type="string" size="10" uuid="9ab52ea3-014e-47c9-a0b7-711d5aa307eb"/>
+      <field name="description" type="text" uuid="c91c104c-7176-4fe7-a9b2-3e9dd7c6d135"/>
       <orm-attributes>
         <attribute name="export-file-name">CompanyEntity.php</attribute>
         <attribute name="table">company</attribute>
