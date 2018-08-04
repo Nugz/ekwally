@@ -23,6 +23,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+    	switch(\Auth::user()->getType()) {
+
+			case 'company':
+				return redirect(route('company.dashboard'));
+				break;
+
+			case 'user':
+				return redirect(route('user.dashboard'));
+				break;
+
+			default:
+				return redirect(route('index'));
+				break;
+		}
+
     }
 }

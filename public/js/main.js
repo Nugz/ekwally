@@ -12578,7 +12578,7 @@ var component = Object(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_
 
 /* hot reload */
 if (false) {
-  var api = require("/Users/tobiasvanegten/repo/ekwally/node_modules/vue-hot-reload-api/dist/index.js")
+  var api = require("/Users/bramladestein/sites/ekwally/node_modules/vue-hot-reload-api/dist/index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -12629,7 +12629,9 @@ var staticRenderFns = [
     return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" })
+          _c("div", { staticClass: "card" }, [
+            _vm._v("\n                test\n            ")
+          ])
         ])
       ])
     ])
