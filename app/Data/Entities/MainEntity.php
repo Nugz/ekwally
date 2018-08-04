@@ -13,4 +13,11 @@ class MainEntity {
 
 	}
 
+	public function delete() {
+
+		\EntityManager::remove($this);
+		\EntityManager::flush($this);
+
+	}
+
 }
