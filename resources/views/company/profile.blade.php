@@ -2,8 +2,8 @@
 
 @section('content')
 
-{{-- Vue instance --}}
-<Profile />
+{{-- Vue component --}}
+<profile></profile>
 
 
 @endsection

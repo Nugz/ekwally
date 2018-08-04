@@ -1,9 +1,0 @@
-import Vue from 'vue'
-import Store from './store/index'
-import Profile from './components/Profile.vue'
-
-new Vue({
-    el: '#app',
-    components: { profile: Profile },
-    store: Store
-})

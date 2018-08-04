@@ -2,7 +2,7 @@
 
 @section('content')
 
-{{-- Vue instance --}}
+{{-- Vue component --}}
 <profile></profile>
 
 {{--<div class="container">--}}
