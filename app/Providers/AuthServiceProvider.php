@@ -24,18 +24,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-//        $this->registerPolicies();
-
-//		if (\Config::get('doctrine')) {
-//			$em = $this->app->make('Doctrine\ORM\EntityManager');
-//			$driver = \Doctrine\ORM\Mapping\Driver\AnnotationDriver::create(__DIR__);
-//			$driverChain = $em->getConfiguration()->getMetadataDriverImpl();
-//			$driverChain->addDriver($driver, 'Barnetik\DoctrineAuth');
-//		}
-//		Auth::extend('doctrine', function($app) {
-//			$provider = new DoctrineUserProvider($app->make('Doctrine\ORM\EntityManager'), config('auth.model'));
-//			return new \Illuminate\Auth\Guard($provider, $app['session.store']);
-//		});
+        $this->registerPolicies();
 
         //
     }

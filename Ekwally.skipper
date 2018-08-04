@@ -2,13 +2,33 @@
 <skipper version="3.2.13.1414" mvc="Without MVC" orm="Doctrine2" name="Ekwally" uuid="7556b2d9-51df-43af-9ffb-6e977f23a311">
   <module name="\Entities/User" local-name="Entities/User" namespace="\App\Data\Entities\User" local-namespace="App\Data\Entities\User" export-format="Doctrine2Php" export-path="app/Data/Entities/User" uuid="ed83232b-9b68-49d4-a527-67907df641de">
     <entity name="\App\Data\Entities\User\UserEntity" local-name="UserEntity" namespace="\App\Data\Entities\User" uuid="ddb31709-72db-4d3a-a07c-e82649e25e85">
-      <field name="id" type="integer" required="true" unique="true" primary="true" unsigned="true" auto-increment="true" uuid="08f2aad4-b559-40e9-bf1d-7ac58e4ac8a5"/>
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" unsigned="true" auto-increment="true" uuid="08f2aad4-b559-40e9-bf1d-7ac58e4ac8a5"/>
       <field name="name" type="string" size="255" uuid="b2455cba-79a5-4bff-b13e-de5594269784"/>
       <field name="email" type="string" size="150" required="true" unique="true" uuid="b120e1f7-22e5-4377-ae1d-f8f521620a8f"/>
       <field name="password" type="string" size="255" required="true" uuid="d7c0f027-fe26-473e-99ff-4b25988c5ad1"/>
+      <field name="type" type="string" size="25" default="user" required="true" uuid="3630432c-d7e9-42bd-928a-c69a3ac5f5b5"/>
+      <field name="company_id" type="integer" size="11" unsigned="true" uuid="2884faac-4c1e-40c9-b483-a51b522ce790"/>
       <orm-attributes>
         <attribute name="export-file-name">UserEntity.php</attribute>
         <attribute name="table">user</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\App\Data\Entities\User\UserEntity" to="\App\Data\Entities\Company\CompanyEntity" caption="CompanyEntity UserEntity" owner-alias="userEntity" inverse-alias="companyEntity" many-owner="true" many-inverse="false" uuid="98d0a53a-68b8-4aa4-914e-98b891f767e9">
+      <association-field from="company_id" to="id"/>
+    </association>
+    <orm-attributes>
+      <attribute name="filename-format">entity-name-only</attribute>
+    </orm-attributes>
+  </module>
+  <module name="\Entities/Company" local-name="Entities/Company" namespace="\App\Data\Entities\Company" local-namespace="App\Data\Entities\Company" export-format="Doctrine2Php" export-path="app/Data/Entities/Company" uuid="6ff36cc4-4377-4f54-98b6-0155e33a198b">
+    <entity name="\App\Data\Entities\Company\CompanyEntity" local-name="CompanyEntity" namespace="\App\Data\Entities\Company" uuid="6bcbb610-5a8a-472e-bf0f-69124926f2c7">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" unsigned="true" auto-increment="true" uuid="2f6476bc-0443-4cf8-881e-dab02b6e8c04"/>
+      <field name="name" required="true" uuid="b65e4a8b-2e0a-4c07-8284-52a053d1c92d"/>
+      <field name="website_url" uuid="8fc4d510-9644-46fa-916b-8d9d8538c354"/>
+      <field name="kvk_nummer" required="true" unique="true" uuid="47bf3017-14a3-4015-a4fe-208d74c6f2e8"/>
+      <orm-attributes>
+        <attribute name="export-file-name">CompanyEntity.php</attribute>
+        <attribute name="table">company</attribute>
       </orm-attributes>
     </entity>
     <orm-attributes>
@@ -16,8 +36,11 @@
     </orm-attributes>
   </module>
   <visual-data>
+    <association uuid="98d0a53a-68b8-4aa4-914e-98b891f767e9" color="#969696"/>
+    <entity uuid="6bcbb610-5a8a-472e-bf0f-69124926f2c7" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="20" position-y="40" size-x="0" size-x2="74" size-y="0" size-y2="31"/>
     <entity uuid="ddb31709-72db-4d3a-a07c-e82649e25e85" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="10" position-y="20"/>
+    <module uuid="6ff36cc4-4377-4f54-98b6-0155e33a198b" bg-color="#FEEFE3" position-x="336" position-y="49" size-x="0" size-x2="171" size-y="0" size-y2="147"/>
     <module uuid="ed83232b-9b68-49d4-a527-67907df641de" bg-color="#FEFCE8" position-x="61" position-y="72" size-x="11" size-x2="217" size-y="22" size-y2="163"/>
-    <project uuid="7556b2d9-51df-43af-9ffb-6e977f23a311" size-x="0" size-x2="328" size-y="0" size-y2="285"/>
+    <project uuid="7556b2d9-51df-43af-9ffb-6e977f23a311" size-x="0" size-x2="542" size-y="0" size-y2="285"/>
   </visual-data>
 </skipper>
