@@ -19,6 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('particulier/aanmelden/stap/{vue_capture?}', function () {
+    return view('auth.create');
+})->where('vue_capture', '[\/\w\.-]*');
+
 // Homepage
 $this->get('/', 'IndexController@index')->name('index');
 
