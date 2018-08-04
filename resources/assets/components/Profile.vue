@@ -11,14 +11,8 @@
 </template>
 
 <script>
-
 export default {
     name: 'profile',
-    data () {
-        return {
-
-        }
-    },
     created () {
 
     }
