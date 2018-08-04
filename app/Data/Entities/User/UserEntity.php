@@ -19,7 +19,7 @@ class UserEntity implements AuthenticatableContract, CanResetPasswordContract {
 
     /**
      * @ORM\Id
-     * @ORM\Column(type="integer", options={"unsigned":true})
+     * @ORM\Column(type="integer", length=11, options={"unsigned":true})
      * @ORM\GeneratedValue(strategy="AUTO")
      */
 	protected $id;
@@ -39,54 +39,98 @@ class UserEntity implements AuthenticatableContract, CanResetPasswordContract {
      */
     protected $password;
 
+    /**
+     * @ORM\Column(type="string", length=25, nullable=false, options={"default":"user"})
+     */
+    protected $type;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Data\Entities\Company\CompanyEntity", inversedBy="userEntity")
+     * @ORM\JoinColumn(name="company_id", referencedColumnName="id", onDelete="CASCADE")
+     */
+    protected $companyEntity;
+
 	/**
-	 * @return mixed
+	 * @return int
 	 */
 	public function getId() {
 		return $this->id;
 	}
 
 	/**
-	 * @return mixed
+	 * @return string
 	 */
 	public function getName() {
 		return $this->name;
 	}
 
 	/**
-	 * @param mixed $name
+	 * @param string $name
 	 */
 	public function setName($name) {
 		$this->name = $name;
 	}
 
 	/**
-	 * @return mixed
+	 * @return string
 	 */
 	public function getEmail() {
 		return $this->email;
 	}
 
 	/**
-	 * @param mixed $email
+	 * @param string $email
 	 */
 	public function setEmail($email) {
 		$this->email = $email;
 	}
 
 	/**
-	 * @return mixed
+	 * @return string
 	 */
 	public function getPassword() {
 		return $this->password;
 	}
 
 	/**
-	 * @param mixed $password
+	 * @param string $password
 	 */
 	public function setPassword($password) {
 		$this->password = $password;
 	}
 
+	/**
+	 * @return mixed
+	 */
+	public function getType() {
+		return $this->type;
+	}
+
+	/**
+	 * @param string $type
+	 */
+	public function setType($type) {
+		$this->type = $type;
+	}
+
+	/**
+	 * @return \App\Data\Entities\Company\CompanyEntity $companyEntity
+	 */
+	public function getCompany() {
+		return $this->companyEntity;
+	}
+
+	/**
+	 * @param \App\Data\Entities\Company\CompanyEntity $companyEntity
+	 */
+	public function setCompanyEntity($companyEntity) {
+		$this->companyEntity = $companyEntity;
+	}
+
+	public function authorizeType($type) {
+
+		return $this->getType() == $type || abort(401, 'This action is unauthorized.');
+
+	}
 
 }

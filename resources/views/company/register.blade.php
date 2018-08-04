@@ -5,17 +5,67 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('user.register') }}" aria-label="{{ __('Register') }}">
-                        @csrf
+                <form method="POST" action="{{ route('company.register') }}" aria-label="{{ __('Register') }}">
+                    @csrf
+
+                    <div class="card-header">{{ __('Company Info') }}</div>
+
+                    <div class="card-body">
+
+                        <div class="form-group row">
+                            <label for="company_name" class="col-md-4 col-form-label text-md-right">{{ __('Company Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="company_name" type="text" class="form-control{{ $errors->has('company_name') ? ' is-invalid' : '' }}" name="company_name" value="{{ old('company_name') }}" required autofocus>
+
+                                @if ($errors->has('company_name'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('company_name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="website_url" class="col-md-4 col-form-label text-md-right">{{ __('Website URL') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="website_url" type="text" class="form-control{{ $errors->has('website_url') ? ' is-invalid' : '' }}" name="website_url" value="{{ old('website_url') }}" required>
+
+                                @if ($errors->has('website_url'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('website_url') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="kvk_nummer" class="col-md-4 col-form-label text-md-right">{{ __('KVK Nummer') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="kvk_nummer" type="text" class="form-control{{ $errors->has('kvk_nummer') ? ' is-invalid' : '' }}" name="kvk_nummer" value="{{ old('kvk_nummer') }}" required>
+
+                                @if ($errors->has('kvk_nummer'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('kvk_nummer') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card-header">{{ __('Account') }}</div>
+
+                    <div class="card-body">
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required>
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
@@ -68,8 +118,9 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
-                </div>
+
+                    </div>
+                </form>
             </div>
         </div>
     </div>

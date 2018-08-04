@@ -64,10 +64,10 @@ class UserEntity extends \App\Data\Entities\User\UserEntity implements \Doctrine
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'id', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'name', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'email', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'password'];
+            return ['__isInitialized__', 'id', 'name', 'email', 'password', 'type', 'companyEntity', 'rememberToken', 'createdAt', 'updatedAt'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'id', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'name', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'email', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'password'];
+        return ['__isInitialized__', 'id', 'name', 'email', 'password', 'type', 'companyEntity', 'rememberToken', 'createdAt', 'updatedAt'];
     }
 
     /**
@@ -173,4 +173,305 @@ class UserEntity extends \App\Data\Entities\User\UserEntity implements \Doctrine
     }
 
     
+    /**
+     * {@inheritDoc}
+     */
+    public function getId()
+    {
+        if ($this->__isInitialized__ === false) {
+            return (int)  parent::getId();
+        }
+
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
+
+        return parent::getId();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getName()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
+
+        return parent::getName();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setName($name)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
+
+        return parent::setName($name);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getEmail()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmail', []);
+
+        return parent::getEmail();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setEmail($email)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmail', [$email]);
+
+        return parent::setEmail($email);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPassword()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPassword', []);
+
+        return parent::getPassword();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPassword($password)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPassword', [$password]);
+
+        return parent::setPassword($password);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getType()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getType', []);
+
+        return parent::getType();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setType($type)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setType', [$type]);
+
+        return parent::setType($type);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCompany()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCompany', []);
+
+        return parent::getCompany();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setCompanyEntity($companyEntity)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCompanyEntity', [$companyEntity]);
+
+        return parent::setCompanyEntity($companyEntity);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function authorizeType($type)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'authorizeType', [$type]);
+
+        return parent::authorizeType($type);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAuthIdentifierName()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAuthIdentifierName', []);
+
+        return parent::getAuthIdentifierName();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAuthIdentifier()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAuthIdentifier', []);
+
+        return parent::getAuthIdentifier();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAuthPassword()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAuthPassword', []);
+
+        return parent::getAuthPassword();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRememberToken()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRememberToken', []);
+
+        return parent::getRememberToken();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setRememberToken($value)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRememberToken', [$value]);
+
+        return parent::setRememberToken($value);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRememberTokenName()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRememberTokenName', []);
+
+        return parent::getRememberTokenName();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getEmailForPasswordReset()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmailForPasswordReset', []);
+
+        return parent::getEmailForPasswordReset();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function sendPasswordResetNotification($token)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'sendPasswordResetNotification', [$token]);
+
+        return parent::sendPasswordResetNotification($token);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCreatedAt()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreatedAt', []);
+
+        return parent::getCreatedAt();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getUpdatedAt()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUpdatedAt', []);
+
+        return parent::getUpdatedAt();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setCreatedAt(\DateTime $createdAt)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreatedAt', [$createdAt]);
+
+        return parent::setCreatedAt($createdAt);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setUpdatedAt(\DateTime $updatedAt)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdatedAt', [$updatedAt]);
+
+        return parent::setUpdatedAt($updatedAt);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function notify($instance)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'notify', [$instance]);
+
+        return parent::notify($instance);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function notifyNow($instance, array $channels = NULL)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'notifyNow', [$instance, $channels]);
+
+        return parent::notifyNow($instance, $channels);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function routeNotificationFor($driver, $notification = NULL)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'routeNotificationFor', [$driver, $notification]);
+
+        return parent::routeNotificationFor($driver, $notification);
+    }
+
 }

@@ -155,6 +155,7 @@ return [
         LaravelDoctrine\ORM\DoctrineServiceProvider::class,
 		LaravelDoctrine\Extensions\GedmoExtensionsServiceProvider::class,
 		LaravelDoctrine\Migrations\MigrationsServiceProvider::class,
+		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -216,6 +217,7 @@ return [
 		'EntityManager' => LaravelDoctrine\ORM\Facades\EntityManager::class,
 		'Registry'      => LaravelDoctrine\ORM\Facades\Registry::class,
 		'Doctrine'      => LaravelDoctrine\ORM\Facades\Doctrine::class,
+		'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 
