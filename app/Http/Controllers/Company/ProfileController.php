@@ -46,8 +46,7 @@ class ProfileController extends Controller {
 		$company->setDescription($data['description']);
 
 		try {
-			\EntityManager::persist($company);
-			\EntityManager::flush($company);
+			$company->save();
 		} catch (Exception $e) {
 			\Debugbar::addThrowable($e);
 		}
