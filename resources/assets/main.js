@@ -1,11 +1,9 @@
-import Router from './routes/index'
-import Store from './store/index'
-import Profile from './Profile'
 import Vue from 'vue'
+import Store from './store/index'
+import Profile from './components/Profile.vue'
 
 new Vue({
-    router: Router,
+    el: '#app',
     components: { Profile },
-    template: '<Profile/>',
     store: Store
-}).$mount('#profile');
+})
