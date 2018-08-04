@@ -2,6 +2,13 @@
 
 @section('content')
     <div class="container">
+
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
+
         <div class="row">
 
             <div class="col-md-4">
@@ -31,13 +38,17 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">E-mail</th>
                                     <th scope="col">Edit</th>
+                                    <th scope="col">Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach ($users as $user)
-                                    <td>{{ $user->getName() }}</td>
-                                    <td>{{ $user->getEmail() }}</td>
-                                    <td><a href="{{ route('company.admin.users.edit', ['id' => $user->getId()]) }}">Edit</a></td>
+                                    <tr>
+                                        <td>{{ $user->getName() }}</td>
+                                        <td>{{ $user->getEmail() }}</td>
+                                        <td><a href="{{ route('company.admin.users.edit', ['id' => $user->getId()]) }}">Edit</a></td>
+                                        <td><a href="{{ route('company.admin.users.delete', ['id' => $user->getId()]) }}">Delete</a></td>
+                                    </tr>
                                 @endforeach
                                 </tbody>
 

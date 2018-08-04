@@ -49,4 +49,5 @@ $this->get('zakelijk/admin', 'Company\AdminController@index')->name('company.adm
 $this->get('zakelijk/admin/users', 'Company\AdminController@users')->name('company.admin.users');
 $this->get('zakelijk/admin/users/new', 'Company\AdminController@newUser')->name('company.admin.users.new');
 $this->get('zakelijk/admin/users/edit/{id}', 'Company\AdminController@editUser')->name('company.admin.users.edit');
+$this->get('zakelijk/admin/users/delete/{id}', 'Company\AdminController@deleteUser')->name('company.admin.users.delete');
 $this->post('zakelijk/admin/users/save', 'Company\AdminController@saveUser')->name('company.admin.users.save');
