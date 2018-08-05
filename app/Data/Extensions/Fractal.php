@@ -20,7 +20,7 @@ trait Fractal {
 		$manager = new FractalManager();
 		$resource = new FractalItem($this, self::getTransformer());
 
-		return $manager->createData($resource);
+		return $manager->createData($resource)->toJson();
 
 	}
 
