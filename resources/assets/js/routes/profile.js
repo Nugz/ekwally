@@ -1,9 +1,7 @@
-const Profile = resolve => require(['../../components/User/Profile.vue'], resolve);
-
-// Child routes definition
-const General = resolve => require(['../../components/User/Profile/General.vue'], resolve);
-const Competence = resolve => require(['../../components/User/Profile/Competence.vue'], resolve);
-const Skills = resolve => require(['../../components/User/Profile/Skills.vue'], resolve);
+import Profile from '../../components/User/Profile.vue';
+import General from '../../components/User/Profile/General.vue';
+import Competence from '../../components/User/Profile/Competence.vue';
+import Skills from '../../components/User/Profile/Skills.vue';
 
 // Define project routes
 export const routes = [
