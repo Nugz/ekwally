@@ -18,3 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('/users', 'UserController');
+Route::resource('/information/skills', 'Information\SkillController');
+Route::resource('/information/sections', 'Information\SectionController');
+Route::resource('/information/positions', 'Information\PositionController');

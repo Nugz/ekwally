@@ -4,35 +4,30 @@ namespace App\Data\Entities\Information;
 
 use App\Data\Extensions\Fractal;
 use Doctrine\ORM\Mapping as ORM;
-use App\Data\Transformers\Information\SkillEntityTransformer;
+use App\Data\Transformers\Information\PositionEntityTransformer;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="skill")
+ * @ORM\Table(name="position")
  */
-class SkillEntity
+class PositionEntity
 {
 
 	use Fractal;
 
-	static $transformer = SkillEntityTransformer::class;
+	static $transformer = PositionEntityTransformer::class;
 
     /**
      * @ORM\Id
-     * @ORM\Column(type="integer", options={"unsigned":true})
+     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $name;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Data\Entities\User\ProfilePositionEntity", mappedBy="skills")
-     */
-    private $profilePositions;
 
 	/**
 	 * @return int
@@ -42,7 +37,7 @@ class SkillEntity
 	}
 
 	/**
-	 * @return string
+	 * @return int
 	 */
 	public function getName() {
 		return $this->name;
@@ -54,6 +49,5 @@ class SkillEntity
 	public function setName($name) {
 		$this->name = $name;
 	}
-
 
 }

@@ -64,10 +64,10 @@ class ProfileEntity extends \App\Data\Entities\User\ProfileEntity implements \Do
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'id', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'salaris_min', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'salaris_max', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'user', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'skills', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'sections', 'createdAt', 'updatedAt', '_inludes'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'id', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'salaris_min', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'salaris_max', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'user', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'positions', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'sections', 'createdAt', 'updatedAt', '_includes'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'id', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'salaris_min', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'salaris_max', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'user', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'skills', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'sections', 'createdAt', 'updatedAt', '_inludes'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'id', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'salaris_min', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'salaris_max', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'user', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'positions', '' . "\0" . 'App\\Data\\Entities\\User\\ProfileEntity' . "\0" . 'sections', 'createdAt', 'updatedAt', '_includes'];
     }
 
     /**
@@ -246,28 +246,6 @@ class ProfileEntity extends \App\Data\Entities\User\ProfileEntity implements \Do
     /**
      * {@inheritDoc}
      */
-    public function getSkills()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSkills', []);
-
-        return parent::getSkills();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setSkills($skills)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSkills', [$skills]);
-
-        return parent::setSkills($skills);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function getSections()
     {
 
@@ -285,6 +263,28 @@ class ProfileEntity extends \App\Data\Entities\User\ProfileEntity implements \Do
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSections', [$sections]);
 
         return parent::setSections($sections);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPositions()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPositions', []);
+
+        return parent::getPositions();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPositions($positions)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPositions', [$positions]);
+
+        return parent::setPositions($positions);
     }
 
     /**
