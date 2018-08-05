@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('vue')
+    <script src="{{ mix('js/profile.js') }}" defer></script>
+@endsection
+
 @section('content')
 
 {{-- Vue component --}}
