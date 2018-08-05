@@ -10,7 +10,7 @@ use Illuminate\Http\Response;
 use League\Fractal\Manager as FractalManager;
 use League\Fractal\Resource\Collection as FractalCollection;
 
-class SectionController extends Controller {
+class PositionController extends Controller {
 
 	private $positionRepository;
 

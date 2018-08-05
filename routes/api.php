@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+	return $request->user()->getName();
 });
 
 Route::resource('/users', 'UserController');
@@ -22,3 +22,5 @@ Route::resource('/users', 'UserController');
 Route::resource('/information/skills', 'Information\SkillController')->only(['index','store']);
 Route::resource('/information/sections', 'Information\SectionController')->only(['index','store']);
 Route::resource('/information/positions', 'Information\PositionController')->only(['index','store']);
+
+Route::resource('users/profile', 'User\ProfileController')->only(['show','update']);
