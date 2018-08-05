@@ -14,12 +14,19 @@
 import Multiselect from 'vue-multiselect'
 
 export default {
-    props: ['currentUser'],
+    props: {
+        currentUser: {
+            type: Object,
+            default () {
+                return {}
+            }
+        }
+    },
     components: {
         'multiselect': Multiselect
     },
     mounted () {
-    	console.log(this.currentUser);
+        console.log(this.currentUser)
     }
 }
 </script>

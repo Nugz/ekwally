@@ -8,7 +8,7 @@
 
 {{-- Vue component --}}
 
-<router-view :currentUser='{!! \Auth::user()->with('profile')->toJson() !!}'></router-view>
+<router-view :current-user='{!! \Auth::user()->with('profile')->toJson() !!}'></router-view>
 {{--<div class="container">--}}
     {{--<div class="row justify-content-center">--}}
         {{--<div class="col-md-8">--}}

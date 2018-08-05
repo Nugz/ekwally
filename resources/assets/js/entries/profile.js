@@ -1,3 +1,4 @@
+import Store from '../../store/index'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import { routes } from '../routes/profile';
@@ -9,8 +10,6 @@ const router = new VueRouter({
     base: '/particulier/profiel',
     routes
 });
-
-import Store from '../../store/index'
 
 new Vue({
     el: '#app',
