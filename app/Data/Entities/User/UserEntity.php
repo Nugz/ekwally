@@ -6,9 +6,13 @@ use Doctrine\ORM\Mapping as ORM;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Foundation\Auth\User;
 use LaravelDoctrine\ORM\Auth\Authenticatable;
 use LaravelDoctrine\Extensions\Timestamps\Timestamps;
 use LaravelDoctrine\ORM\Notifications\Notifiable;
+use League\Fractal\Manager as FractalManager;
+use League\Fractal\Resource\Item as FractalItem;
+use App\Data\Transformers\User\UserEntityTransformer;
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
@@ -136,6 +140,15 @@ class UserEntity extends \App\Data\Entities\MainEntity implements Authenticatabl
 	public function isType($type) {
 
 		return $this->getType() == $type;
+
+	}
+
+	public function toJson() {
+
+		$manager = new FractalManager();
+		$resource = new FractalItem($this, new UserEntityTransformer);
+
+		return $manager->createData($resource)->toJson();
 
 	}
 

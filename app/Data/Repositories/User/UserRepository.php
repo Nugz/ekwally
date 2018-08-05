@@ -3,9 +3,10 @@
 namespace App\Data\Repositories\User;
 
 use Doctrine\ORM\EntityRepository;
-use Doctrine\ORM\QueryBuilder;
 
-class UserRepository extends EntityRepository Implements UserRepositoryInterface {
+
+
+class UserRepository extends EntityRepository implements UserRepositoryInterface {
 
 	/*
 	 * Finds all users from company

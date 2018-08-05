@@ -2,7 +2,9 @@
 
 namespace App\Data\Repositories\User;
 
-interface UserRepositoryInterface {
+use Doctrine\Common\Persistence\ObjectRepository;
+
+interface UserRepositoryInterface extends ObjectRepository {
 
 	/**
 	 * @param $id
