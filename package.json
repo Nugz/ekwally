@@ -26,6 +26,8 @@
     "dependencies": {
         "axios": "^0.18.0",
         "css-loader": "*",
+        "vue-draggable": "^1.0.6",
+        "vue-multiselect": "^2.1.0",
         "vue-template-compiler": "^2.0.0"
     }
 }

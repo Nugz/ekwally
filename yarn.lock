@@ -7259,6 +7259,10 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
+vue-draggable@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/vue-draggable/-/vue-draggable-1.0.6.tgz#19d6b66d65ac75d72ef6089d617eeaf9aca29752"
+
 vue-hot-reload-api@^2.2.0, vue-hot-reload-api@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.0.tgz#97976142405d13d8efae154749e88c4e358cf926"
@@ -7290,6 +7294,10 @@ vue-loader@^15.2.6:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
+
+vue-multiselect@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/vue-multiselect/-/vue-multiselect-2.1.0.tgz#9e8ee7087658f029d06778cdb8da0b34ee3f1e28"
 
 vue-router@^3.0.1:
   version "3.0.1"

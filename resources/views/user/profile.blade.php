@@ -8,7 +8,9 @@
 
 {{-- Vue component --}}
 
-<profile></profile>
+<profile
+    :user-data='{!! Auth::user()->toJson() !!}'
+/>
 
 {{--<div class="container">--}}
     {{--<div class="row justify-content-center">--}}

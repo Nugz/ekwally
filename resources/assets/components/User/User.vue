@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    bram dfsaf fgi
+
                 </div>
             </div>
         </div>
@@ -12,12 +12,8 @@
 
 <script>
 export default {
-    props: ['userData'],
-    components: {
-        Multiselect
-    },
     mounted () {
-        console.log(this.userData)
+        console.log('User component ingeladen')
     }
 }
 </script>
