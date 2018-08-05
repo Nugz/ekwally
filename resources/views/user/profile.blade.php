@@ -3,6 +3,7 @@
 @section('content')
 
 {{-- Vue component --}}
+
 <profile></profile>
 
 {{--<div class="container">--}}
