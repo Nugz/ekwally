@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    bram dfsaf
+                    bram dfsaf fgi
                 </div>
             </div>
         </div>
@@ -12,9 +12,9 @@
 
 <script>
 export default {
-    name: 'profile',
-    created () {
-
+    props: ['userData'],
+    mounted () {
+        console.log(this.userData)
     }
 }
 </script>
