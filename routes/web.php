@@ -43,6 +43,7 @@ $this->post('particulier/aanmelden', 'Auth\RegisterController@register');
 // User Dashboard
 $this->get('particulier/dashboard', 'User\DashboardController@index')->name('user.dashboard');
 $this->get('particulier/profiel', 'User\ProfileController@index')->name('user.profile');
+$this->get('particulier/profiel/{step}', 'User\ProfileController@index')->name('user.profile.step');
 
 // Company Admin
 $this->get('zakelijk/admin', 'Company\AdminController@index')->name('company.admin');
