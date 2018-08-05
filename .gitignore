@@ -1,6 +1,7 @@
 /node_modules
 /public/*
 !/public/.htaccess
+!/public/index.php
 /storage/*.key
 /vendor
 /.idea
