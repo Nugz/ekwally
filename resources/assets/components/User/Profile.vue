@@ -2,7 +2,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                dsaasdasas
+                test bla
+                <router-link :to="{ path: '/algemeen'}" replace>Algemeen</router-link>
+                <router-view></router-view>
             </div>
         </div>
     </div>
