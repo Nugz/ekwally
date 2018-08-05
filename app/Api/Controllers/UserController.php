@@ -49,4 +49,11 @@ class UserController extends Controller {
 
 	}
 
+	public function profile(Request $request) {
+
+		var_dump(123);
+		exit();
+
+	}
+
 }

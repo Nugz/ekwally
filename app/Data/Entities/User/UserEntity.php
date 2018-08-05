@@ -4,6 +4,7 @@ namespace App\Data\Entities\User;
 
 use App\Data\Entities\MainEntity;
 use App\Data\Extensions\Fractal;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -13,6 +14,7 @@ use LaravelDoctrine\ORM\Auth\Authenticatable;
 use LaravelDoctrine\Extensions\Timestamps\Timestamps;
 use LaravelDoctrine\ORM\Notifications\Notifiable;
 use App\Data\Transformers\User\UserEntityTransformer;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                test bla
+                test bram
                 <router-link :to="{ path: '/algemeen'}" replace>Algemeen</router-link>
                 <router-view></router-view>
             </div>
@@ -26,7 +26,12 @@ export default {
         'multiselect': Multiselect
     },
     mounted () {
-        console.log(this.currentUser)
+    	console.log('test');
+		axios.get('/api/user')
+			.then(response => {
+			console.log(response.data);
+	});
+
     }
 }
 </script>

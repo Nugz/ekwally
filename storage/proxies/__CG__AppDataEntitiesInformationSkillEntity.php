@@ -213,6 +213,28 @@ class SkillEntity extends \App\Data\Entities\Information\SkillEntity implements 
     /**
      * {@inheritDoc}
      */
+    public function save()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'save', []);
+
+        return parent::save();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function delete()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'delete', []);
+
+        return parent::delete();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function with($includes)
     {
 

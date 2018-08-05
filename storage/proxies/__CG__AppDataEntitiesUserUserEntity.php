@@ -64,10 +64,10 @@ class UserEntity extends \App\Data\Entities\User\UserEntity implements \Doctrine
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'name', 'email', 'password', 'type', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'profile', 'companyEntity', 'rememberToken', 'createdAt', 'updatedAt', '_includes'];
+            return ['__isInitialized__', 'id', 'name', 'email', 'password', 'type', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'profile', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'accessTokens', 'companyEntity', 'rememberToken', 'createdAt', 'updatedAt', '_includes', 'accessToken'];
         }
 
-        return ['__isInitialized__', 'id', 'name', 'email', 'password', 'type', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'profile', 'companyEntity', 'rememberToken', 'createdAt', 'updatedAt', '_includes'];
+        return ['__isInitialized__', 'id', 'name', 'email', 'password', 'type', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'profile', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'accessTokens', 'companyEntity', 'rememberToken', 'createdAt', 'updatedAt', '_includes', 'accessToken'];
     }
 
     /**
@@ -323,6 +323,28 @@ class UserEntity extends \App\Data\Entities\User\UserEntity implements \Doctrine
     /**
      * {@inheritDoc}
      */
+    public function getAccessTokens()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAccessTokens', []);
+
+        return parent::getAccessTokens();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getKey()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getKey', []);
+
+        return parent::getKey();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function authorizeType($type)
     {
 
@@ -549,6 +571,51 @@ class UserEntity extends \App\Data\Entities\User\UserEntity implements \Doctrine
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'toJson', []);
 
         return parent::toJson();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function tokenCan($scope)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'tokenCan', [$scope]);
+
+        return parent::tokenCan($scope);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function createToken($name, array $scopes = array (
+))
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'createToken', [$name, $scopes]);
+
+        return parent::createToken($name, $scopes);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAccessToken()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAccessToken', []);
+
+        return parent::getAccessToken();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAccessToken($accessToken)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAccessToken', [$accessToken]);
+
+        return parent::setAccessToken($accessToken);
     }
 
 }

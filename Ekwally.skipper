@@ -126,7 +126,31 @@
       </orm-attributes>
     </entity>
   </module>
+  <module name="\Entities/Oauth" local-name="Entities/Oauth" namespace="\App\Data\Entities\Oauth" local-namespace="App\Data\Entities\Oauth" export-format="Doctrine2Php" export-path="app/Data/Entities/Oauth" uuid="547ed782-faeb-4e19-b6f2-568089451be4">
+    <entity name="\App\Data\Entities\Oauth\OauthAccessToken" local-name="OauthAccessToken" namespace="\App\Data\Entities\Oauth" uuid="9b003580-449b-47e3-ac89-a15c66528e29">
+      <field name="id" type="string" size="100" primary="true" uuid="b3bc6e07-79ec-4a48-9e9f-e2fd75576dc9"/>
+      <field name="user_id" type="integer" size="11" unsigned="true" uuid="a2b620c2-e751-4703-b6c7-665cb078b9dd"/>
+      <field name="client_id" type="integer" size="11" required="true" uuid="05c0a4d2-0c0b-4810-a59c-27ce61db6724"/>
+      <field name="name" type="string" size="255" uuid="0bec5dbc-0d0f-41e0-a0c6-be4b5b3a64c1"/>
+      <field name="scopes" type="text" uuid="68bef07f-26d4-4fc6-aa92-e28f6006d697"/>
+      <field name="revoked" type="smallint" size="1" required="true" uuid="d71ed423-7059-4b53-8e0a-6ca9ff1fbb07"/>
+      <field name="created_at" type="datetime_immutable" uuid="e38d95f5-ede8-4cb5-90fa-c3c27e8da9e3"/>
+      <field name="updated_at" type="datetime_immutable" uuid="2f68cecb-aee8-4a90-9e17-ef51c16069ef"/>
+      <field name="expires_at" type="datetime_immutable" uuid="40de31cc-d8f0-4754-84fa-f14cedbe4e5d"/>
+      <orm-attributes>
+        <attribute name="table">oauth_access_tokens</attribute>
+        <attribute name="export-file-name">OauthAccessToken.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\App\Data\Entities\Oauth\OauthAccessToken" to="\App\Data\Entities\User\UserEntity" caption="UserEntity OauthAccessToken" owner-alias="accessTokens" inverse-alias="user" many-owner="true" many-inverse="false" uuid="37a365ef-6216-41de-a9fe-7e528e8b5b44">
+      <association-field from="user_id" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-attributes>
+    </association>
+  </module>
   <visual-data>
+    <association uuid="37a365ef-6216-41de-a9fe-7e528e8b5b44" color="#969696"/>
     <association uuid="45eaaa83-f305-4ea7-a362-6078f8898124" color="#969696"/>
     <association uuid="56d486cd-034d-4edd-95f8-7a586a25e1f8" color="#969696"/>
     <association uuid="98d0a53a-68b8-4aa4-914e-98b891f767e9" color="#969696"/>
@@ -135,15 +159,17 @@
     <entity uuid="63b82a96-9bd3-4b1f-b6e6-efd40c669c2c" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="296" position-y="40" size-x="0" size-x2="98" size-y="0" size-y2="45"/>
     <entity uuid="6bcbb610-5a8a-472e-bf0f-69124926f2c7" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="20" position-y="40" size-x="0" size-x2="74" size-y="0" size-y2="31"/>
     <entity uuid="7b3ad9c0-4e47-41db-8d99-84beff7c7dc7" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="245" position-y="31" size-x="0" size-x2="124" size-y="0" size-y2="59"/>
+    <entity uuid="9b003580-449b-47e3-ac89-a15c66528e29" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="20" position-y="40" size-x="0" size-x2="91" size-y="0" size-y2="31"/>
     <entity uuid="c602fcf2-487f-449a-b449-4ed47f674a97" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="254" position-y="146" size-x="0" size-x2="112" size-y="0" size-y2="45"/>
     <entity uuid="c8491845-d865-4b06-93bb-c145964f876c" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="560" position-y="18" size-x="0" size-x2="147" size-y="0" size-y2="60"/>
     <entity uuid="ddb31709-72db-4d3a-a07c-e82649e25e85" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="10" position-y="20"/>
     <entity uuid="df908353-71a2-46dc-a47d-07d3e0cf201d" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="158" position-y="40" size-x="0" size-x2="98" size-y="0" size-y2="45"/>
     <many-to-many-association uuid="11ea48f3-c77b-43c2-a69e-66e94da328ac" color="#969696"/>
     <many-to-many-association uuid="881d5338-0d72-4abb-8921-423b46fc585e" color="#969696"/>
+    <module uuid="547ed782-faeb-4e19-b6f2-568089451be4" bg-color="#EAE4F1" position-x="1477" position-y="50" size-x="0" size-x2="198" size-y="0" size-y2="203"/>
     <module uuid="6ff36cc4-4377-4f54-98b6-0155e33a198b" bg-color="#FEEFE3" position-x="1086" position-y="22" size-x="0" size-x2="171" size-y="0" size-y2="147"/>
     <module uuid="959e6cce-9a9b-4844-9c2f-c9cd8961f1f2" bg-color="#FDEBEF" position-x="963" position-y="240" size-x="0" size-x2="414" size-y="0" size-y2="105"/>
     <module uuid="ed83232b-9b68-49d4-a527-67907df641de" bg-color="#FEFCE8" position-x="38" position-y="41" size-x="11" size-x2="932" size-y="22" size-y2="463"/>
-    <project uuid="7556b2d9-51df-43af-9ffb-6e977f23a311" size-x="0" size-x2="1427" size-y="0" size-y2="554"/>
+    <project uuid="7556b2d9-51df-43af-9ffb-6e977f23a311" size-x="0" size-x2="1725" size-y="0" size-y2="554"/>
   </visual-data>
 </skipper>

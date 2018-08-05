@@ -64,10 +64,10 @@ class SectionEntity extends \App\Data\Entities\Information\SectionEntity impleme
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Data\\Entities\\Information\\SectionEntity' . "\0" . 'id', '' . "\0" . 'App\\Data\\Entities\\Information\\SectionEntity' . "\0" . 'name', '' . "\0" . 'App\\Data\\Entities\\Information\\SectionEntity' . "\0" . 'profiles'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Data\\Entities\\Information\\SectionEntity' . "\0" . 'id', '' . "\0" . 'App\\Data\\Entities\\Information\\SectionEntity' . "\0" . 'name', '' . "\0" . 'App\\Data\\Entities\\Information\\SectionEntity' . "\0" . 'profiles', '_includes'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Data\\Entities\\Information\\SectionEntity' . "\0" . 'id', '' . "\0" . 'App\\Data\\Entities\\Information\\SectionEntity' . "\0" . 'name', '' . "\0" . 'App\\Data\\Entities\\Information\\SectionEntity' . "\0" . 'profiles'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Data\\Entities\\Information\\SectionEntity' . "\0" . 'id', '' . "\0" . 'App\\Data\\Entities\\Information\\SectionEntity' . "\0" . 'name', '' . "\0" . 'App\\Data\\Entities\\Information\\SectionEntity' . "\0" . 'profiles', '_includes'];
     }
 
     /**
@@ -173,4 +173,85 @@ class SectionEntity extends \App\Data\Entities\Information\SectionEntity impleme
     }
 
     
+    /**
+     * {@inheritDoc}
+     */
+    public function getId()
+    {
+        if ($this->__isInitialized__ === false) {
+            return (int)  parent::getId();
+        }
+
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
+
+        return parent::getId();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getName()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
+
+        return parent::getName();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setName($name)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
+
+        return parent::setName($name);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function save()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'save', []);
+
+        return parent::save();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function delete()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'delete', []);
+
+        return parent::delete();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function with($includes)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'with', [$includes]);
+
+        return parent::with($includes);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function toJson()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'toJson', []);
+
+        return parent::toJson();
+    }
+
 }
