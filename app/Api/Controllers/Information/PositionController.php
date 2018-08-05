@@ -34,4 +34,19 @@ class SectionController extends Controller {
 
 	}
 
+	public function store(Request $request) {
+
+		$position = new PositionEntity;
+		$position->setName($request->name);
+
+		try {
+			$position->save();
+		} catch(\Exception $e) {
+			return response(['error' => $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
+		}
+
+		return response($position->toJson(), Response::HTTP_OK);
+
+	}
+
 }

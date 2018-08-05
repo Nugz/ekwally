@@ -34,4 +34,19 @@ class SkillController extends Controller {
 
 	}
 
+	public function store(Request $request) {
+
+		$skill = new SkillEntity;
+		$skill->setName($request->name);
+
+		try {
+			$skill->save();
+		} catch(\Exception $e) {
+			return response(['error' => $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
+		}
+
+		return response($skill->toJson(), Response::HTTP_OK);
+
+	}
+
 }

@@ -2,6 +2,7 @@
 
 namespace App\Data\Entities\Information;
 
+use App\Data\Entities\MainEntity;
 use App\Data\Extensions\Fractal;
 use App\Data\Transformers\Information\SectionEntityTransformer;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="section")
  */
-class SectionEntity
+class SectionEntity extends MainEntity
 {
 
 	use Fractal;
@@ -25,7 +26,7 @@ class SectionEntity
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", unique=true, length=255, nullable=false)
      */
     private $name;
 

@@ -103,7 +103,7 @@
   <module name="\Entities/Information" local-name="Entities/Information" namespace="\App\Data\Entities\Information" local-namespace="\App\Data\Entities\Information" export-format="Doctrine2Php" export-path="app/Data/Entities/Information" uuid="959e6cce-9a9b-4844-9c2f-c9cd8961f1f2">
     <entity name="\App\Data\Entities\Information\SkillEntity" local-name="SkillEntity" namespace="\App\Data\Entities\Information" uuid="0bae910c-fa7f-428f-a08e-bdce77f8d38b">
       <field name="id" type="integer" required="true" unique="true" primary="true" unsigned="true" auto-increment="true" uuid="d5418702-da9f-4fda-89a4-6677e47b8deb"/>
-      <field name="name" type="string" size="255" required="true" uuid="eea1a012-b5e7-4605-b923-4b724c8aed60"/>
+      <field name="name" type="string" size="255" required="true" unique="true" uuid="eea1a012-b5e7-4605-b923-4b724c8aed60"/>
       <orm-attributes>
         <attribute name="export-file-name">SkillEntity.php</attribute>
         <attribute name="table">skill</attribute>
@@ -111,7 +111,7 @@
     </entity>
     <entity name="\App\Data\Entities\Information\SectionEntity" local-name="SectionEntity" namespace="\App\Data\Entities\Information" uuid="df908353-71a2-46dc-a47d-07d3e0cf201d">
       <field name="id" type="integer" required="true" unique="true" primary="true" auto-increment="true" uuid="e2db8d21-9dbb-465f-9ea0-0eb8b10de554"/>
-      <field name="name" type="string" size="255" required="true" uuid="ce1f5aee-276f-4dde-9ba8-075c83b694f8"/>
+      <field name="name" type="string" size="255" required="true" unique="true" uuid="ce1f5aee-276f-4dde-9ba8-075c83b694f8"/>
       <orm-attributes>
         <attribute name="export-file-name">SectionEntity.php</attribute>
         <attribute name="table">section</attribute>
@@ -119,7 +119,7 @@
     </entity>
     <entity name="\App\Data\Entities\Information\PositionEntity" local-name="PositionEntity" namespace="\App\Data\Entities\Information" uuid="63b82a96-9bd3-4b1f-b6e6-efd40c669c2c">
       <field name="id" type="integer" required="true" unique="true" primary="true" auto-increment="true" uuid="c61415e8-8675-4b60-be61-26cac0e259ce"/>
-      <field name="name" type="string" size="255" uuid="2ce1b87c-11b1-4f7a-8884-a88876eb9e8c"/>
+      <field name="name" type="string" size="255" unique="true" uuid="2ce1b87c-11b1-4f7a-8884-a88876eb9e8c"/>
       <orm-attributes>
         <attribute name="table">position</attribute>
         <attribute name="export-file-name">PositionEntity.php</attribute>

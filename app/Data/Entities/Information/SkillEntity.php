@@ -2,6 +2,7 @@
 
 namespace App\Data\Entities\Information;
 
+use App\Data\Entities\MainEntity;
 use App\Data\Extensions\Fractal;
 use Doctrine\ORM\Mapping as ORM;
 use App\Data\Transformers\Information\SkillEntityTransformer;
@@ -10,7 +11,7 @@ use App\Data\Transformers\Information\SkillEntityTransformer;
  * @ORM\Entity
  * @ORM\Table(name="skill")
  */
-class SkillEntity
+class SkillEntity extends MainEntity
 {
 
 	use Fractal;
@@ -25,7 +26,7 @@ class SkillEntity
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", unique=true, length=255, nullable=false)
      */
     private $name;
 
