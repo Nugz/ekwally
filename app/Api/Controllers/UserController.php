@@ -38,6 +38,10 @@ class UserController extends Controller {
 		$resource = new FractalCollection($users, UserEntity::getTransformer());
 		$fractal = new FractalManager();
 
+		if (isset($_GET['include'])) {
+			$fractal->parseIncludes($_GET['include']);
+		}
+
 		return response(
 			$fractal->createData($resource)->toJson(),
 			Response::HTTP_OK

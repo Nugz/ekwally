@@ -49,6 +49,12 @@ class UserEntity extends \App\Data\Entities\MainEntity implements Authenticatabl
     protected $type;
 
     /**
+     * @ORM\OneToOne(targetEntity="App\Data\Entities\User\ProfileEntity", inversedBy="user")
+     * @ORM\JoinColumn(name="profile_id", referencedColumnName="id", unique=true, onDelete="CASCADE")
+     */
+    private $profile;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Data\Entities\Company\CompanyEntity", inversedBy="userEntity")
      * @ORM\JoinColumn(name="company_id", referencedColumnName="id", onDelete="CASCADE")
      */
@@ -130,6 +136,22 @@ class UserEntity extends \App\Data\Entities\MainEntity implements Authenticatabl
 	public function setCompanyEntity($companyEntity) {
 		$this->companyEntity = $companyEntity;
 	}
+
+	/**
+	 * @return \App\Data\Entities\User\ProfileEntity
+	 */
+	public function getProfile() {
+		return $this->profile;
+	}
+
+	/**
+	 * @param \App\Data\Entities\User\ProfileEntity $profile
+	 */
+	public function setProfile($profile) {
+		$this->profile = $profile;
+	}
+
+
 
 	public function authorizeType($type) {
 

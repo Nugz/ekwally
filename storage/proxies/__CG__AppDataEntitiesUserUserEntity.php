@@ -64,10 +64,10 @@ class UserEntity extends \App\Data\Entities\User\UserEntity implements \Doctrine
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'name', 'email', 'password', 'type', 'companyEntity', 'rememberToken', 'createdAt', 'updatedAt'];
+            return ['__isInitialized__', 'id', 'name', 'email', 'password', 'type', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'profile', 'companyEntity', 'rememberToken', 'createdAt', 'updatedAt', '_inludes'];
         }
 
-        return ['__isInitialized__', 'id', 'name', 'email', 'password', 'type', 'companyEntity', 'rememberToken', 'createdAt', 'updatedAt'];
+        return ['__isInitialized__', 'id', 'name', 'email', 'password', 'type', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'profile', 'companyEntity', 'rememberToken', 'createdAt', 'updatedAt', '_inludes'];
     }
 
     /**
@@ -301,12 +301,67 @@ class UserEntity extends \App\Data\Entities\User\UserEntity implements \Doctrine
     /**
      * {@inheritDoc}
      */
+    public function getProfile()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProfile', []);
+
+        return parent::getProfile();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setProfile($profile)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProfile', [$profile]);
+
+        return parent::setProfile($profile);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function authorizeType($type)
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'authorizeType', [$type]);
 
         return parent::authorizeType($type);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function isType($type)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isType', [$type]);
+
+        return parent::isType($type);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function save()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'save', []);
+
+        return parent::save();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function delete()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'delete', []);
+
+        return parent::delete();
     }
 
     /**
@@ -472,6 +527,28 @@ class UserEntity extends \App\Data\Entities\User\UserEntity implements \Doctrine
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'routeNotificationFor', [$driver, $notification]);
 
         return parent::routeNotificationFor($driver, $notification);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function with($includes)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'with', [$includes]);
+
+        return parent::with($includes);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function toJson()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'toJson', []);
+
+        return parent::toJson();
     }
 
 }

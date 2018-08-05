@@ -3,12 +3,13 @@
 namespace App\Data\Transformers\User;
 
 use \App\Data\Entities\User\UserEntity;
+use \App\Data\Entities\User\ProfileEntity;
 use \League\Fractal\TransformerAbstract;
 
 class UserEntityTransformer extends TransformerAbstract {
 
 	protected $availableIncludes = [
-		'company'
+		'profile'
 	];
 
 	public function transform(UserEntity $user) {
@@ -25,8 +26,12 @@ class UserEntityTransformer extends TransformerAbstract {
 
 	}
 
-	public function includeCompany(UserEntity $user) {
+	public function includeProfile(UserEntity $user) {
 
+		$profile = $user->getProfile();
+
+		if($profile && $profile->getId())
+			return $this->item($profile, ProfileEntity::getTransformer());
 
 	}
 

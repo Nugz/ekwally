@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Data\Entities\User\ProfileEntity;
 use Illuminate\Http\Request;
 use Mockery\Exception;
 
@@ -31,6 +32,19 @@ class ProfileController extends Controller {
 		\Auth::user()->authorizeType('user');
 
 		$user = \Auth::user();
+		$profile = $user->getProfile();
+
+		if(!$profile) {
+
+			$profile = new ProfileEntity;
+			\EntityManager::persist($profile);
+
+			$user->setProfile($profile);
+			\EntityManager::persist($user);
+			\EntityManager::flush();
+
+		}
+
 		return view('user.profile', compact('user'));
 	}
 

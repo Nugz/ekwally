@@ -7,8 +7,7 @@
 @section('content')
 
 {{-- Vue component --}}
-
-<profile></profile>
+<profile :user='{!! Auth::user()->with('profile')->toJson() !!}'></profile>
 
 {{--<div class="container">--}}
     {{--<div class="row justify-content-center">--}}

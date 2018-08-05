@@ -12,9 +12,9 @@
 
 <script>
 export default {
-    props: ['userData'],
+    props: ['user'],
     mounted () {
-        console.log(this.userData)
+        console.log(this.user)
     }
 }
 </script>
