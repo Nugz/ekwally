@@ -2,11 +2,13 @@
 
 namespace App\Data\Entities\User;
 
+use App\Data\Entities\MainEntity;
 use App\Data\Extensions\Fractal;
 use Doctrine\ORM\Mapping as ORM;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Laravel\Passport\HasApiTokens;
 use LaravelDoctrine\ORM\Auth\Authenticatable;
 use LaravelDoctrine\Extensions\Timestamps\Timestamps;
 use LaravelDoctrine\ORM\Notifications\Notifiable;
@@ -15,9 +17,9 @@ use App\Data\Transformers\User\UserEntityTransformer;
  * @ORM\Entity
  * @ORM\Table(name="user")
  */
-class UserEntity extends \App\Data\Entities\MainEntity implements AuthenticatableContract, CanResetPasswordContract {
+class UserEntity extends MainEntity implements AuthenticatableContract, CanResetPasswordContract {
 
-	use Authenticatable, CanResetPassword, Timestamps, Notifiable, Fractal;
+	use Authenticatable, CanResetPassword, Timestamps, Notifiable, Fractal, HasApiTokens;
 
 	static $transformer = UserEntityTransformer::class;
 
@@ -151,6 +153,9 @@ class UserEntity extends \App\Data\Entities\MainEntity implements Authenticatabl
 		$this->profile = $profile;
 	}
 
+	public function getKey() {
+		return $this->getId();
+	}
 
 
 	public function authorizeType($type) {

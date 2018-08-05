@@ -35,21 +35,6 @@
         <attribute name="export-file-name">ProfileEntity.php</attribute>
       </orm-attributes>
     </entity>
-    <entity name="\App\Data\Entities\User\SkillEntity_To_ProfileEntity" local-name="SkillEntity_To_ProfileEntity" namespace="\App\Data\Entities\User" uuid="a818c5f3-12b0-4bd4-9940-29be257e522f">
-      <field name="skill_id" type="integer" required="true" primary="true" unsigned="true" uuid="6e15d64f-3f86-46be-b224-608d7259bbd1"/>
-      <field name="profile_id" type="integer" size="11" required="true" primary="true" unsigned="true" uuid="72217fcf-094d-45b6-a8b6-a7d2783a4b55"/>
-      <orm-attributes>
-        <attribute name="table">skill_to_profile</attribute>
-      </orm-attributes>
-    </entity>
-    <many-to-many mn-entity="\App\Data\Entities\User\SkillEntity_To_ProfileEntity" caption="SkillEntity to ProfileEntity" uuid="8a806d55-5a82-4f29-a0d9-99547eb0f6c3">
-      <many-to-many-entity name="\App\Data\Entities\User\ProfileEntity" owning-side="true" alias="profiles" uuid="8489a381-7704-44f7-af4d-ed124ffc44cc">
-        <many-to-many-field from="profile_id" to="id"/>
-      </many-to-many-entity>
-      <many-to-many-entity name="\App\Data\Entities\Information\SkillEntity" owning-side="false" alias="skills" uuid="a976c0b6-9a9c-4c9b-bbf1-2903dd842739">
-        <many-to-many-field from="skill_id" to="id"/>
-      </many-to-many-entity>
-    </many-to-many>
     <entity name="\App\Data\Entities\User\SectionEntity_To_ProfileEntity" local-name="SectionEntity_To_ProfileEntity" namespace="\App\Data\Entities\User" uuid="c8491845-d865-4b06-93bb-c145964f876c">
       <field name="section_id" type="integer" required="true" primary="true" uuid="45b167c5-5b11-48ff-8a9f-a6097701a9f4"/>
       <field name="profile_entity_id" type="integer" size="11" required="true" primary="true" unsigned="true" uuid="f818f58f-a124-4e27-93b6-c5bf05ea8a01"/>
@@ -63,6 +48,35 @@
       </many-to-many-entity>
       <many-to-many-entity name="\App\Data\Entities\Information\SectionEntity" owning-side="false" alias="sections" uuid="3011e917-68f9-4e04-87c5-d5933f6c6dfe">
         <many-to-many-field from="section_id" to="id"/>
+      </many-to-many-entity>
+    </many-to-many>
+    <entity name="\App\Data\Entities\User\ProfilePositionEntity" local-name="ProfilePositionEntity" namespace="\App\Data\Entities\User" uuid="c602fcf2-487f-449a-b449-4ed47f674a97">
+      <field name="id" type="integer" required="true" unique="true" primary="true" auto-increment="true" uuid="a827a142-f8f1-4fc7-83fd-0bdfea3fbe93"/>
+      <field name="profile_id" type="integer" size="11" unsigned="true" uuid="2586a941-7661-434b-ad82-c5c582da9f3e"/>
+      <orm-attributes>
+        <attribute name="table">profile_position</attribute>
+        <attribute name="export-file-name">ProfilePositionEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\App\Data\Entities\User\ProfilePositionEntity" to="\App\Data\Entities\User\ProfileEntity" caption="ProfileEntity ProfilePositionEntity" owner-alias="positions" inverse-alias="profile" many-owner="true" many-inverse="false" uuid="45eaaa83-f305-4ea7-a362-6078f8898124">
+      <association-field from="profile_id" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-attributes>
+    </association>
+    <entity name="\App\Data\Entities\User\SkillEntity_To_ProfilePositionEntity" local-name="SkillEntity_To_ProfilePositionEntity" namespace="\App\Data\Entities\User" uuid="15388957-313d-4657-805d-3be048378a7d">
+      <field name="skill_id" type="integer" required="true" primary="true" unsigned="true" uuid="aae6a08e-f25f-460a-9d67-507f0e9fbabb"/>
+      <field name="profile_position_entity_id" type="integer" required="true" primary="true" uuid="27d7b4f5-c773-4ae2-815c-0aa094672183"/>
+      <orm-attributes>
+        <attribute name="table">skill_to_profile_position</attribute>
+      </orm-attributes>
+    </entity>
+    <many-to-many mn-entity="\App\Data\Entities\User\SkillEntity_To_ProfilePositionEntity" caption="SkillEntity to ProfilePositionEntity" uuid="881d5338-0d72-4abb-8921-423b46fc585e">
+      <many-to-many-entity name="\App\Data\Entities\User\ProfilePositionEntity" owning-side="true" alias="profilePositions" uuid="3c425f04-6029-40ee-846b-4adadc24858d">
+        <many-to-many-field from="profile_position_entity_id" to="id"/>
+      </many-to-many-entity>
+      <many-to-many-entity name="\App\Data\Entities\Information\SkillEntity" owning-side="false" alias="skills" uuid="307f6310-6e6c-467a-bc94-bb4ba7ef04e1">
+        <many-to-many-field from="skill_id" to="id"/>
       </many-to-many-entity>
     </many-to-many>
     <orm-attributes>
@@ -89,7 +103,7 @@
   <module name="\Entities/Information" local-name="Entities/Information" namespace="\App\Data\Entities\Information" local-namespace="\App\Data\Entities\Information" export-format="Doctrine2Php" export-path="app/Data/Entities/Information" uuid="959e6cce-9a9b-4844-9c2f-c9cd8961f1f2">
     <entity name="\App\Data\Entities\Information\SkillEntity" local-name="SkillEntity" namespace="\App\Data\Entities\Information" uuid="0bae910c-fa7f-428f-a08e-bdce77f8d38b">
       <field name="id" type="integer" required="true" unique="true" primary="true" unsigned="true" auto-increment="true" uuid="d5418702-da9f-4fda-89a4-6677e47b8deb"/>
-      <field name="name" type="string" size="255" required="true" uuid="eea1a012-b5e7-4605-b923-4b724c8aed60"/>
+      <field name="name" type="string" size="255" required="true" unique="true" uuid="eea1a012-b5e7-4605-b923-4b724c8aed60"/>
       <orm-attributes>
         <attribute name="export-file-name">SkillEntity.php</attribute>
         <attribute name="table">skill</attribute>
@@ -97,28 +111,39 @@
     </entity>
     <entity name="\App\Data\Entities\Information\SectionEntity" local-name="SectionEntity" namespace="\App\Data\Entities\Information" uuid="df908353-71a2-46dc-a47d-07d3e0cf201d">
       <field name="id" type="integer" required="true" unique="true" primary="true" auto-increment="true" uuid="e2db8d21-9dbb-465f-9ea0-0eb8b10de554"/>
-      <field name="name" type="string" size="255" required="true" uuid="ce1f5aee-276f-4dde-9ba8-075c83b694f8"/>
+      <field name="name" type="string" size="255" required="true" unique="true" uuid="ce1f5aee-276f-4dde-9ba8-075c83b694f8"/>
       <orm-attributes>
         <attribute name="export-file-name">SectionEntity.php</attribute>
         <attribute name="table">section</attribute>
       </orm-attributes>
     </entity>
+    <entity name="\App\Data\Entities\Information\PositionEntity" local-name="PositionEntity" namespace="\App\Data\Entities\Information" uuid="63b82a96-9bd3-4b1f-b6e6-efd40c669c2c">
+      <field name="id" type="integer" required="true" unique="true" primary="true" auto-increment="true" uuid="c61415e8-8675-4b60-be61-26cac0e259ce"/>
+      <field name="name" type="string" size="255" unique="true" uuid="2ce1b87c-11b1-4f7a-8884-a88876eb9e8c"/>
+      <orm-attributes>
+        <attribute name="table">position</attribute>
+        <attribute name="export-file-name">PositionEntity.php</attribute>
+      </orm-attributes>
+    </entity>
   </module>
   <visual-data>
+    <association uuid="45eaaa83-f305-4ea7-a362-6078f8898124" color="#969696"/>
     <association uuid="56d486cd-034d-4edd-95f8-7a586a25e1f8" color="#969696"/>
     <association uuid="98d0a53a-68b8-4aa4-914e-98b891f767e9" color="#969696"/>
     <entity uuid="0bae910c-fa7f-428f-a08e-bdce77f8d38b" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="20" position-y="40" size-x="0" size-x2="98" size-y="0" size-y2="45"/>
+    <entity uuid="15388957-313d-4657-805d-3be048378a7d" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="514" position-y="218" size-x="0" size-x2="165" size-y="0" size-y2="60"/>
+    <entity uuid="63b82a96-9bd3-4b1f-b6e6-efd40c669c2c" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="296" position-y="40" size-x="0" size-x2="98" size-y="0" size-y2="45"/>
     <entity uuid="6bcbb610-5a8a-472e-bf0f-69124926f2c7" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="20" position-y="40" size-x="0" size-x2="74" size-y="0" size-y2="31"/>
-    <entity uuid="7b3ad9c0-4e47-41db-8d99-84beff7c7dc7" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="223" position-y="17" size-x="0" size-x2="124" size-y="0" size-y2="59"/>
-    <entity uuid="a818c5f3-12b0-4bd4-9940-29be257e522f" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="387" position-y="18" size-x="0" size-x2="133" size-y="0" size-y2="60"/>
+    <entity uuid="7b3ad9c0-4e47-41db-8d99-84beff7c7dc7" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="245" position-y="31" size-x="0" size-x2="124" size-y="0" size-y2="59"/>
+    <entity uuid="c602fcf2-487f-449a-b449-4ed47f674a97" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="254" position-y="146" size-x="0" size-x2="112" size-y="0" size-y2="45"/>
     <entity uuid="c8491845-d865-4b06-93bb-c145964f876c" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="560" position-y="18" size-x="0" size-x2="147" size-y="0" size-y2="60"/>
     <entity uuid="ddb31709-72db-4d3a-a07c-e82649e25e85" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="10" position-y="20"/>
     <entity uuid="df908353-71a2-46dc-a47d-07d3e0cf201d" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="158" position-y="40" size-x="0" size-x2="98" size-y="0" size-y2="45"/>
     <many-to-many-association uuid="11ea48f3-c77b-43c2-a69e-66e94da328ac" color="#969696"/>
-    <many-to-many-association uuid="8a806d55-5a82-4f29-a0d9-99547eb0f6c3" color="#969696"/>
-    <module uuid="6ff36cc4-4377-4f54-98b6-0155e33a198b" bg-color="#FEEFE3" position-x="799" position-y="22" size-x="0" size-x2="171" size-y="0" size-y2="147"/>
-    <module uuid="959e6cce-9a9b-4844-9c2f-c9cd8961f1f2" bg-color="#FDEBEF" position-x="815" position-y="240" size-x="0" size-x2="276" size-y="0" size-y2="105"/>
-    <module uuid="ed83232b-9b68-49d4-a527-67907df641de" bg-color="#FEFCE8" position-x="38" position-y="41" size-x="11" size-x2="727" size-y="22" size-y2="463"/>
-    <project uuid="7556b2d9-51df-43af-9ffb-6e977f23a311" size-x="0" size-x2="1142" size-y="0" size-y2="554"/>
+    <many-to-many-association uuid="881d5338-0d72-4abb-8921-423b46fc585e" color="#969696"/>
+    <module uuid="6ff36cc4-4377-4f54-98b6-0155e33a198b" bg-color="#FEEFE3" position-x="1086" position-y="22" size-x="0" size-x2="171" size-y="0" size-y2="147"/>
+    <module uuid="959e6cce-9a9b-4844-9c2f-c9cd8961f1f2" bg-color="#FDEBEF" position-x="963" position-y="240" size-x="0" size-x2="414" size-y="0" size-y2="105"/>
+    <module uuid="ed83232b-9b68-49d4-a527-67907df641de" bg-color="#FEFCE8" position-x="38" position-y="41" size-x="11" size-x2="932" size-y="22" size-y2="463"/>
+    <project uuid="7556b2d9-51df-43af-9ffb-6e977f23a311" size-x="0" size-x2="1427" size-y="0" size-y2="554"/>
   </visual-data>
 </skipper>

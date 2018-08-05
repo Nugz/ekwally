@@ -13,6 +13,7 @@
         "laravel-doctrine/migrations": "^1.1",
         "laravel-doctrine/orm": "1.4.*",
         "laravel/framework": "5.6.*",
+        "laravel/passport": "^6.0",
         "laravel/tinker": "^1.0",
         "league/fractal": "^0.17.0"
     },

@@ -40,14 +40,9 @@ class ProfileEntity
     private $user;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Data\Entities\Information\SkillEntity", inversedBy="profiles")
-     * @ORM\JoinTable(
-     *     name="skill_to_profile",
-     *     joinColumns={@ORM\JoinColumn(name="profile_id", referencedColumnName="id", nullable=false)},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="skill_id", referencedColumnName="id", nullable=false)}
-     * )
+     * @ORM\OneToMany(targetEntity="App\Data\Entities\User\ProfilePositionEntity", mappedBy="profile")
      */
-    private $skills;
+    private $positions;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Data\Entities\Information\SectionEntity", inversedBy="profiles")
@@ -102,20 +97,6 @@ class ProfileEntity
 	}
 
 	/**
-	 * @return \App\Data\Entities\Information\SkillEntity[]
-	 */
-	public function getSkills() {
-		return $this->skills;
-	}
-
-	/**
-	 * @param mixed \App\Data\Entities\Information\SkillEntity[] $skills
-	 */
-	public function setSkills($skills) {
-		$this->skills = $skills;
-	}
-
-	/**
 	 * @return \App\Data\Entities\Information\SectionEntity[]
 	 */
 	public function getSections() {
@@ -128,6 +109,21 @@ class ProfileEntity
 	public function setSections($sections) {
 		$this->sections = $sections;
 	}
+
+	/**
+	 * @return \App\Data\Entities\User\ProfilePositionEntity[]
+	 */
+	public function getPositions() {
+		return $this->positions;
+	}
+
+	/**
+	 * @param mixed \App\Data\Entities\User\ProfilePositionEntity[] $positions
+	 */
+	public function setPositions($positions) {
+		$this->positions = $positions;
+	}
+
 
 
 }

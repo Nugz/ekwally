@@ -64,10 +64,10 @@ class UserEntity extends \App\Data\Entities\User\UserEntity implements \Doctrine
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'name', 'email', 'password', 'type', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'profile', 'companyEntity', 'rememberToken', 'createdAt', 'updatedAt', '_inludes'];
+            return ['__isInitialized__', 'id', 'name', 'email', 'password', 'type', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'profile', 'companyEntity', 'rememberToken', 'createdAt', 'updatedAt', '_includes'];
         }
 
-        return ['__isInitialized__', 'id', 'name', 'email', 'password', 'type', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'profile', 'companyEntity', 'rememberToken', 'createdAt', 'updatedAt', '_inludes'];
+        return ['__isInitialized__', 'id', 'name', 'email', 'password', 'type', '' . "\0" . 'App\\Data\\Entities\\User\\UserEntity' . "\0" . 'profile', 'companyEntity', 'rememberToken', 'createdAt', 'updatedAt', '_includes'];
     }
 
     /**
