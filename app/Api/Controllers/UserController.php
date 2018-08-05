@@ -35,8 +35,7 @@ class UserController extends Controller {
 
 		$users = $this->userRepository->findAll();
 
-		$resource = new FractalCollection($users, new UserEntityTransformer);
-
+		$resource = new FractalCollection($users, UserEntity::getTransformer());
 		$fractal = new FractalManager();
 
 		return response(
