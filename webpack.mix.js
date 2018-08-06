@@ -12,11 +12,16 @@ const { VueLoaderPlugin } = require('vue-loader');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-    .js('resources/assets/js/entries/profile.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css');
 
 mix.webpackConfig({
     plugins: [
         new VueLoaderPlugin
-    ]
+    ],
+    resolve: {
+        modules: [
+			path.resolve(__dirname, 'node_modules'),
+			path.resolve(__dirname, 'resources/assets/components'),
+        ]
+    }
 });
