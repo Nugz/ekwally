@@ -28,7 +28,6 @@ export default {
 
 		setPositions(state, positions) {
 
-			console.log(positions);
 			state.positions = positions;
 
 		}

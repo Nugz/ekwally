@@ -14,15 +14,12 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
 
-		computed: {
-			...mapGetters('information', {
-				positions: 'positions'
-			})
-		},
+    computed: {
+        ...mapGetters('information', {
+            positions: 'positions'
+        })
+    },
 
-        mounted () {
-            console.log('General component ingeladen')
-        },
     created() {
 			this.$store.dispatch('information/getPositions');
     }
