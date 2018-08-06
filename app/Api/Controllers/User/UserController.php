@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Api\Controllers;
+namespace App\Api\Controllers\User;
 
 use App\Data\Entities\User\UserEntity;
 use App\Data\Repositories\User\UserRepositoryInterface;
@@ -31,21 +31,22 @@ class UserController extends Controller {
 	/**
 	 * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
 	 */
-	public function index(Request $request) {
+	public function index() {
+
+		$users = $this->userRepository->findAll();
+
+		$resource = new FractalCollection($users, UserEntity::getTransformer());
+		$fractal = new FractalManager();
+
+		if (isset($_GET['include'])) {
+			$fractal->parseIncludes($_GET['include']);
+		}
 
 		return response(
-			$request->user()->with('profile')->toJson(),
+			$fractal->createData($resource)->toJson(),
 			Response::HTTP_OK
 		);
 
-	}
-
-	public function profile(Request $request) {
-
-		return response(
-			$request->user()->getProfile()->toJson(),
-			Response::HTTP_OK
-		);
 	}
 
 }
