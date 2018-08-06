@@ -1,7 +1,7 @@
-import Profile from '../../components/User/Profile.vue';
-import General from '../../components/User/Profile/General.vue';
-import Competence from '../../components/User/Profile/Competence.vue';
-import Skills from '../../components/User/Profile/Skills.vue';
+import Profile from 'User/Profile.vue';
+import General from 'User/Profile/General.vue';
+import Competence from 'User/Profile/Competence.vue';
+import Skills from 'User/Profile/Skills.vue';
 
 // Define project routes
 export const routes = [

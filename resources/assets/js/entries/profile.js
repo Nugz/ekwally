@@ -1,7 +1,7 @@
-import Store from '../../store/index'
+import Store from 'store'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { routes } from '../routes/profile';
+import { routes } from 'routes/profile';
 
 Vue.use(VueRouter)
 

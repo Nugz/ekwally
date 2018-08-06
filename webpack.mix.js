@@ -18,5 +18,12 @@ mix.js('resources/assets/js/app.js', 'public/js')
 mix.webpackConfig({
     plugins: [
         new VueLoaderPlugin
-    ]
+    ],
+    resolve: {
+        modules: [
+            path.resolve(__dirname, 'node_modules'),
+            path.resolve(__dirname, 'resources/assets/components'),
+			path.resolve(__dirname, 'resources/assets/js'),
+        ]
+    }
 });
